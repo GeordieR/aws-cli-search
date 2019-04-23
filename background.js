@@ -7,7 +7,10 @@ chrome.omnibox.onInputEntered.addListener(
     // Split the strings separating each command
     var commands = text.split(' ')
     
-    if(commands.length == 1){
+    if(commands[0] === ''){
+      // Open the CLI documentation homepage
+      var newURL = 'https://docs.aws.amazon.com/cli/latest/reference/'
+    } else if(commands.length == 1){
       // Open the documentation for a command
       var newURL = 'https://docs.aws.amazon.com/cli/latest/reference/'+commands[0]+'/'
     } else {
