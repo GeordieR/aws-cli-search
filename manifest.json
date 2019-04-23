@@ -1,0 +1,23 @@
+{
+  "name": "AWS CLI Search",
+  "description": "Type 'awscli' plus a command into the Omnibox to open the latest documentation for the command.",
+  "version": "0.1",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "omnibox": { "keyword" : "awscli" },
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/awscli_16.png",
+      "32": "icons/awscli_32.png"
+      }
+  },
+  "icons": {
+    "16": "icons/awscli_16.png",
+    "32": "icons/awscli_32.png",
+    "48": "icons/awscli_48.png",
+    "128": "icons/awscli_128.png"
+  }
+}
