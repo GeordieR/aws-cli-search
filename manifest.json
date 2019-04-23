@@ -1,11 +1,14 @@
 {
   "name": "AWS CLI Search",
   "description": "Type 'awscli' plus a command into the Omnibox to open the latest documentation for the command.",
-  "version": "0.1",
+  "version": "0.2",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
+  "permissions": [
+    "tabs"
+  ],
   "omnibox": { "keyword" : "awscli" },
   "manifest_version": 2,
   "browser_action": {
