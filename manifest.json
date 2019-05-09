@@ -22,5 +22,6 @@
     "32": "icons/awscli_32.png",
     "48": "icons/awscli_48.png",
     "128": "icons/awscli_128.png"
-  }
+  },
+  "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'"
 }
