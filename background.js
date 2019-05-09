@@ -42,6 +42,9 @@ function match(text) {
     if (commands[0] === '') {
         // Open the CLI documentation homepage
         var newURL = 'https://docs.aws.amazon.com/cli/latest/reference/'
+    }else if (commands[0] === 's'){
+        // Search the CLI
+        return navigate(search(text));
     } else if (commands.length == 1) {
         // Open the documentation for a command
         var newURL = 'https://docs.aws.amazon.com/cli/latest/reference/' + commands[0] + '/'
@@ -49,26 +52,8 @@ function match(text) {
         // Open the documentation for a sub-command
         var newURL = 'https://docs.aws.amazon.com/cli/latest/reference/' + text.replace(" ", "/") + '.html'
     }
-
-    var ok = false;
-
-    $.ajax({
-    type: 'HEAD',
-    url: newURL,
-    headers: {  'Access-Control-Allow-Origin': newURL },
-    success: function() {
-        ok = true
-        },
-    error: function() {
-        ok = false
-        }
-    });
-
-    if (ok) { // If the page exists
-        return newURL;
-    } else {
-        return search(text);
-    }
+    
+    return navigate(newURL);
 }
 
 function resetDefaultSuggestion() {
@@ -78,18 +63,20 @@ function resetDefaultSuggestion() {
 }
 
 function updateDefaultSuggestion(text, match) {
-    if (match.substring(0, 5) === 'https') {
-        // No Exact Match
+    if (text.split(' ')[0] === 's') {
+        // Search
         chrome.omnibox.setDefaultSuggestion({
-            description: '<url><match>Search Docs For: </match></url>' + text
+            description: '<url><match>Search Docs For: </match></url>' + text.substring(2,text.length)
         });
     } else {
-        // Exact Match
+        chrome.omnibox.setDefaultSuggestion({
+            description: '<url><match>Navigate to: </match></url> aws ' + text
+        });
     }
 }
 
 function search(text) {
-    return "https://docs.aws.amazon.com/cli/latest/search.html?q=" + encodeURI(text.replace(" ", "+"))
+    return "https://docs.aws.amazon.com/cli/latest/search.html?q=" + encodeURI(text.substring(2,text.length).replace(" ", "+"))
 }
 
 function navigate(url) {

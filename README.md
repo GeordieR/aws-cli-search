@@ -11,6 +11,7 @@ A Chrome Omnibox Extension for searching the AWS CLI Docs
 - Get to a command: `awscli <COMMAND_FAMILY> <COMMAND>`
   - `awscli ec2 describe-images`
   - `awscli route53 list-hosted-zones`
+- To search the docs: `awscli s <SEARCH_TERM>
 
 ## Install Instructions
 
