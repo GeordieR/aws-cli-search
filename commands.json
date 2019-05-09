@@ -1,0 +1,39 @@
+{
+	"name":"aws",
+	"description": "The AWS Command Line Interface is a unified tool to manage your AWS services.",
+	"path": "https://docs.aws.amazon.com/cli/latest/reference/index.html",
+	"sub-commands":[
+		{
+			"name": "ec2",
+			"description": "Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster.",
+			"path": "https://docs.aws.amazon.com/cli/latest/reference/ec2/",
+			"sub-commands" : [
+				{
+					"name": "describe-instances",
+					"description": "Describes the specified instances or all of your instances.",
+					"path": "https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html",
+					"sub-commands": []
+				},
+				{
+					"name": "allocate-hosts",
+					"description": "Allocates a Dedicated Host to your account.",
+					"path": "https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-hosts.html",
+					"sub-commands": []
+				},
+				{
+					"name": "wait",
+					"description": "Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met.",
+					"path": "https://docs.aws.amazon.com/cli/latest/reference/ec2/wait/",
+					"sub-commands": [
+						{
+							"name": "image-exists",
+							"description": "Wait until JMESPath query length(Images[]) > 0 returns True when polling with describe-images.",
+							"path": "https://docs.aws.amazon.com/cli/latest/reference/ec2/wait/image-exists.html",
+							"sub-commands": []
+						}
+					]
+				}
+			]	
+		}
+	]
+}
